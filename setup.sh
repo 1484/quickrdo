@@ -10,8 +10,6 @@ function prep {
     systemctl mask firewalld.service
     systemctl start iptables.service
     systemctl enable iptables.service
-    systemctl stop NetworkManager
-    systemctl disable NetworkManager
 }
 
 function rdo_install {

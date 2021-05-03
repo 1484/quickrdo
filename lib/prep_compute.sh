@@ -8,8 +8,6 @@ function pre_install {
     systemctl mask firewalld.service
     systemctl start iptables.service
     systemctl enable iptables.service
-    systemctl stop NetworkManager
-    systemctl disable NetworkManager
 
 #    yum -y install http://repos.fedorapeople.org/repos/openstack/EOL/openstack-havana/rdo-release-havana-9.noarch.rpm
 #    sed -i 's/openstack\/openstack-havana/openstack\/EOL\/openstack-havana/' /etc/yum.repos.d/rdo-release.repo
