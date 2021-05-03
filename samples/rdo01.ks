@@ -1,5 +1,5 @@
 install
-url --url="http://192.168.200.1/Fedora19/"
+url --url="http://ftp.riken.jp/Linux/centos/8-stream/BaseOS/x86_64/os/"
 network --bootproto=static --hostname=rdo01 --device=eth0 --gateway=192.168.200.1 --ip=192.168.200.11 --nameserver=192.168.200.1 --netmask=255.255.255.0 --activate
 network --device=eth1 --onboot=no
 network --device=eth2 --onboot=no
@@ -18,6 +18,6 @@ part swap --fstype="swap" --size=4096
 part / --fstype="ext4" --grow --size=1
 
 %packages
-@core
-@standard
+@Core
+@Standard
 %end

@@ -1,37 +1,37 @@
-virt-install --name rdo01 \
+sudo virt-install --name rdo01 \
     --vcpus 2 --ram 8192 \
-    --disk path=/var/lib/libvirt/images/rdo01.img,size=128,sparse=false \
+    --disk path=/home/kvm/images/rdo01.img,size=128,sparse=false \
     --network network:external01 \
     --network network:external01 \
     --network network:internal01 \
     --graphics vnc \
     --cpu host \
-    --os-variant fedora19 \
-    --location http://192.168.200.1/Fedora19/ \
+    --os-variant centos-stream8 \
+    --location http://ftp.riken.jp/Linux/centos/8-stream/BaseOS/x86_64/os/ \
     --initrd-inject=rdo01.ks \
-    --extra-args="ks=file:/rdo01.ks"
+    --extra-args="ks=file:/rdo01.ks net.ifnames=0 biosdevname=0" &
 
-virt-install --name rdo02 \
+sudo virt-install --name rdo02 \
     --vcpus 4 --ram 16384 \
-    --disk path=/var/lib/libvirt/images/rdo02.img,size=128,sparse=false \
+    --disk path=/home/kvm/images/rdo02.img,size=128,sparse=false \
     --network network:external01 \
     --network network:internal01 \
     --graphics vnc \
     --cpu host \
-    --os-variant fedora19 \
-    --location http://192.168.200.1/Fedora19/ \
+    --os-variant centos-stream8 \
+    --location http://ftp.riken.jp/Linux/centos/8-stream/BaseOS/x86_64/os/ \
     --initrd-inject=rdo02.ks \
-    --extra-args="ks=file:/rdo02.ks"
+    --extra-args="ks=file:/rdo02.ks net.ifnames=0 biosdevname=0" &
 
-virt-install --name rdo03 \
+sudo virt-install --name rdo03 \
     --vcpus 4 --ram 8192 \
-    --disk path=/var/lib/libvirt/images/rdo03.img,size=128,sparse=false \
+    --disk path=/home/kvm/images/rdo03.img,size=128,sparse=false \
     --network network:external01 \
     --network network:internal01 \
     --graphics vnc \
     --cpu host \
-    --os-variant fedora19 \
-    --location http://192.168.200.1/Fedora19/ \
+    --os-variant centos-stream8 \
+    --location http://ftp.riken.jp/Linux/centos/8-stream/BaseOS/x86_64/os/ \
     --initrd-inject=rdo03.ks \
-    --extra-args="ks=file:/rdo03.ks"
+    --extra-args="ks=file:/rdo03.ks net.ifnames=0 biosdevname=0" &
 
