@@ -14,17 +14,17 @@ function controller {
 }
 
 function compute {
-    node=$1
+    node=$2
     if [[ ! -f controller.txt ]]; then
         echo "You need controller.txt."
         exit 1
     fi
     cp -f controller.txt compute.txt
 
-    compute_ip=$(awk -F"=" '/CONFIG_NOVA_API_HOST=/{ print $2 }' compute.txt)
+    compute_ip=$(awk -F"=" '/CONFIG_CONTROLLER_HOST=/{ print $2 }' compute.txt)
     sed -i "s/EXCLUDE_SERVERS=.*/EXCLUDE_SERVERS=${compute_ip}/" compute.txt
-    sed -i "s/CONFIG_NOVA_COMPUTE_HOSTS=.*/CONFIG_NOVA_COMPUTE_HOSTS=${node}/" compute.txt
-    sed -i "s/CONFIG_CINDER_HOST=.*/CONFIG_CINDER_HOST=${node}/" compute.txt
+    sed -i "s/CONFIG_COMPUTE_HOSTS=.*/CONFIG_COMPUTE_HOSTS=${node}/" compute.txt
+    sed -i "s/CONFIG_STORAGE_HOST=.*/CONFIG_STORAGE_HOST=${node}/" compute.txt
 }
 
 function main {

@@ -1,5 +1,5 @@
 install
-url --url="http://192.168.200.1/Fedora19/"
+url --url="http://ftp.riken.jp/Linux/centos/8-stream/BaseOS/x86_64/os/"
 network --bootproto=static --hostname=rdo02 --device=eth0 --gateway=192.168.200.1 --ip=192.168.200.12 --nameserver=192.168.200.1 --netmask=255.255.255.0 --activate
 network --device=eth1 --onboot=no
 rootpw passw0rd
@@ -19,6 +19,6 @@ part pv.1 --size=61440
 volgroup cinder-volumes pv.1
 
 %packages
-@core
-@standard
+@Core
+@Standard
 %end
