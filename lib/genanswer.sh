@@ -14,7 +14,7 @@ function controller {
 }
 
 function compute {
-    node=$2
+    node=$1
     if [[ ! -f controller.txt ]]; then
         echo "You need controller.txt."
         exit 1
