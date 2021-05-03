@@ -10,6 +10,12 @@ function prep {
     systemctl mask firewalld.service
     systemctl start iptables.service
     systemctl enable iptables.service
+    yum -y install network-scripts
+    readlink $(readlink $(which ifup))
+    touch /etc/sysconfig/disable-deprecation-warnings
+    systemctl disable --now NetworkManager
+    systemctl enable network
+    systemctl start network
 }
 
 function rdo_install {
