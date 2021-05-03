@@ -25,6 +25,7 @@ function compute {
     sed -i "s/EXCLUDE_SERVERS=.*/EXCLUDE_SERVERS=${compute_ip}/" compute.txt
     sed -i "s/CONFIG_COMPUTE_HOSTS=.*/CONFIG_COMPUTE_HOSTS=${node}/" compute.txt
     sed -i "s/CONFIG_STORAGE_HOST=.*/CONFIG_STORAGE_HOST=${node}/" compute.txt
+
 }
 
 function main {
